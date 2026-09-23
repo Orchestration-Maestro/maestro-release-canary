@@ -1,0 +1,39 @@
+name: Release
+# A tag v* runs the live release path of rust-workflows end to end: the binary
+# publisher uploads the verified payload to the tag's GitHub Release, the
+# attestation workflow signs and verifies its provenance, and the evidence
+# publisher attaches the run's reports. Both uploads wait for a reviewer of the
+# release environment, and the Release must exist before they are approved.
+"on":
+  push:
+    tags: ["v*"]
+permissions:
+  contents: read
+jobs:
+  binaries:
+    uses: Orchestration-Maestro/rust-workflows/.github/workflows/publish-binaries.yml@1ef6a54e0864d5d4c46f9861d877fd5b0c518545  # v1.2.0
+    permissions:
+      contents: write  # upload the payload to the existing Release
+      actions: read  # verify the release environment's protections
+    with:
+      dry-run: false
+  attest:
+    needs: binaries
+    uses: Orchestration-Maestro/rust-workflows/.github/workflows/attest-binaries.yml@1ef6a54e0864d5d4c46f9861d877fd5b0c518545  # v1.2.0
+    permissions:
+      contents: read
+      id-token: write  # sign the provenance statement with Sigstore
+      attestations: write  # record the attestation against this repository
+    with:
+      artifact-id: ${{ needs.binaries.outputs.artifact-id }}
+      revision: ${{ needs.binaries.outputs.revision }}
+  evidence:
+    needs: binaries
+    uses: Orchestration-Maestro/rust-workflows/.github/workflows/publish-evidence.yml@1ef6a54e0864d5d4c46f9861d877fd5b0c518545  # v1.2.0
+    permissions:
+      contents: write  # upload evidence.tar.gz to the existing Release
+      actions: read  # verify the release environment's protections
+    with:
+      artifact-name: ${{ needs.binaries.outputs.artifact-name }}
+      revision: ${{ needs.binaries.outputs.revision }}
+      dry-run: false
