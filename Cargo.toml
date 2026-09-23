@@ -1,0 +1,10 @@
+[package]
+name = "release-canary"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Canary consumer that proves the live release path of rust-workflows"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
