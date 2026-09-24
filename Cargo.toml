@@ -5,6 +5,8 @@ edition = "2024"
 rust-version = "1.85"
 description = "Canary consumer that proves the live release path of rust-workflows"
 license = "MIT"
+# A canary of the binary release path: it ships binaries, never a crate.
+publish = false
 
 [dependencies]
 anyhow = "1"
