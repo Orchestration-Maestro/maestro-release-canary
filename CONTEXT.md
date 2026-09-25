@@ -1,4 +1,4 @@
-# release-canary
+# maestro-release-canary
 
 A canary consumer of `rust-workflows`: the smallest binary that runs its live
 release path on real tags.

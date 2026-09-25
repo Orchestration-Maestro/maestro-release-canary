@@ -7,8 +7,8 @@
 /// # Examples
 ///
 /// ```
-/// assert_eq!(release_canary::checked_sum(20, 22), Some(42));
-/// assert_eq!(release_canary::checked_sum(u32::MAX, 1), None);
+/// assert_eq!(maestro_release_canary::checked_sum(20, 22), Some(42));
+/// assert_eq!(maestro_release_canary::checked_sum(u32::MAX, 1), None);
 /// ```
 #[must_use]
 pub const fn checked_sum(left: u32, right: u32) -> Option<u32> {

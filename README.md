@@ -1,4 +1,4 @@
-# release-canary
+# maestro-release-canary
 
 A deliberately small Rust binary whose only job is to prove, on real tags, that
 [rust-workflows](https://github.com/Orchestration-Maestro/rust-workflows)
@@ -23,8 +23,8 @@ Download the assets of a release, then:
 
 ```bash
 sha256sum --check SHA256SUMS
-gh attestation verify payload.tar.gz --repo Orchestration-Maestro/release-canary \
+gh attestation verify payload.tar.gz --repo Orchestration-Maestro/maestro-release-canary \
   --signer-workflow Orchestration-Maestro/rust-workflows/.github/workflows/attest-binaries.yml
 tar -xzf payload.tar.gz
-cargo audit bin release-canary
+cargo audit bin maestro-release-canary
 ```
