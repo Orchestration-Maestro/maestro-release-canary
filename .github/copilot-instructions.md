@@ -34,7 +34,6 @@ in place.
 .                                               # Repository root
 ├── .github/                                    # GitHub metadata, templates and workflows
 │   ├── workflows/                              # GitHub Actions workflows
-│   │   ├── ci.yml                              # CI: calls ci.yml, upload-coverage.yml, upload-sarif.yml; rendered by rust-gate sync
 │   │   ├── dependabot-auto-merge.yml           # Dependabot auto-merge
 │   │   ├── release.yml                         # Release: calls attest-binaries.yml, publish-binaries.yml, publish-evidence.yml
 │   │   └── scorecard.yml                       # OpenSSF Scorecard
