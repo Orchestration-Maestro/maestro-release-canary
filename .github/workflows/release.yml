@@ -15,6 +15,8 @@ jobs:
     permissions:
       contents: write  # upload the payload to the existing Release
       actions: read  # verify the release environment's protections
+      security-events: write  # static ceiling for the central check's skipped SARIF upload
+      id-token: write  # static ceiling for the central check's skipped Codecov login
     with:
       dry-run: false
   attest:
