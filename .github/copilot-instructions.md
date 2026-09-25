@@ -1,4 +1,4 @@
-# Copilot instructions for release-canary
+# Copilot instructions for maestro-release-canary
 
 ## Start here
 
@@ -45,9 +45,9 @@ in place.
 │   └── dependabot.yml                          # The organization merges only conventional titles: "ci(deps): bump ..."; rendered by rust-gate sync
 ├── docs/                                       # Documentation
 │   └── standards/                              # Standards
-│       ├── engineering.md                      # Engineering rules in release-canary
-│       ├── northstar.md                        # Northstar for release-canary
-│       └── security.md                         # Security rules in release-canary
+│       ├── engineering.md                      # Engineering rules in maestro-release-canary
+│       ├── northstar.md                        # Northstar for maestro-release-canary
+│       └── security.md                         # Security rules in maestro-release-canary
 ├── src/                                        # The crate's sources
 │   ├── lib.rs                                  # Checked arithmetic for the binary consumer fixture
 │   └── main.rs                                 # Binary consumer fixture that prints a checked arithmetic result

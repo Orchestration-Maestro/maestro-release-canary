@@ -6,7 +6,7 @@ use std::process::Command;
 
 #[test]
 fn the_binary_prints_the_checked_sum() {
-    let output = Command::new(env!("CARGO_BIN_EXE_release-canary"))
+    let output = Command::new(env!("CARGO_BIN_EXE_maestro-release-canary"))
         .output()
         .expect("example binary must run");
     assert!(output.status.success());

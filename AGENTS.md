@@ -1,6 +1,6 @@
 # AGENTS.md
 
-`release-canary` is a deliberately small Rust binary. Its only job is to prove,
+`maestro-release-canary` is a deliberately small Rust binary. Its only job is to prove,
 on real tags, that `rust-workflows` releases what it claims: every push runs
 the organization's Rust CI, and every `v*` tag runs the live release path.
 
