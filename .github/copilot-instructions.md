@@ -32,8 +32,6 @@ in place.
 
 ```text
 .                                               # Repository root
-├── .config/                                    # Tool settings that live in a directory
-│   └── nextest.toml                            # TOML settings: nextest; rendered by rust-gate sync
 ├── .github/                                    # GitHub metadata, templates and workflows
 │   ├── workflows/                              # GitHub Actions workflows
 │   │   ├── ci.yml                              # CI: calls ci.yml, upload-coverage.yml, upload-sarif.yml; rendered by rust-gate sync
@@ -61,20 +59,14 @@ in place.
 ├── .gitattributes                              # How Git should treat each kind of file; rendered by rust-gate sync
 ├── .gitignore                                  # Paths git never tracks
 ├── .pre-commit-config.yaml                     # The commit hooks prek runs locally and CI runs over every file; rendered by rust-gate sync
-├── .rumdl.toml                                 # rumdl: the Markdown structure every repository holds to; rendered by rust-gate sync
-├── .taplo.toml                                 # taplo: the TOML formatter just check and the commit hook run over every TOML file in the repository; rendered by rust-gate sync
-├── .yamlfmt.yml                                # How yamlfmt formats every YAML file; rendered by rust-gate sync
 ├── AGENTS.md                                   # Rules for coding agents: what to read, what never to weaken, how to verify
 ├── CONTEXT.md                                  # The words this repository uses, and the ones it avoids
 ├── Cargo.lock                                  # Exact dependency versions, committed so every build resolves the same
 ├── Cargo.toml                                  # Crate manifest: Canary consumer that proves the live release path of rust-workflows
 ├── LICENSE                                     # The licence this repository is distributed under
 ├── README.md                                   # A deliberately small Rust binary whose only job is to prove, on real tags, that rust-workflows releases what it claims
-├── clippy.toml                                 # TOML settings: clippy; rendered by rust-gate sync
-├── deny.toml                                   # DEP-001: one version of each crate, no wildcard requirement, crates.io alone, and no yanked or unmaintained crate; rendered by rust-gate sync
 ├── maestro-quality.toml                        # This repository's quality settings; rust-gate sync reads them
 ├── rust-toolchain.toml                         # The pinned Rust toolchain; rendered by rust-gate sync
-├── rustfmt.toml                                # TOML settings: rustfmt; rendered by rust-gate sync
 └── typos.toml                                  # The words this repository means, from [typos] words in maestro-quality.toml; rendered by rust-gate sync
 ```
 
