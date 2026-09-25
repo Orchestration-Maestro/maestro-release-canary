@@ -13,6 +13,8 @@ jobs:
     uses: Orchestration-Maestro/rust-workflows/.github/workflows/ci.yml@4a05e4c4c6cb82451af0b585255881bb7d860c81  # v2.5.1
     permissions:
       contents: read
+    with:
+      platforms: macos windows
   # Clippy and secret-scan findings into the Security tab.
   sarif:
     needs: rust

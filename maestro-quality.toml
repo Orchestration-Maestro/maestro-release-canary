@@ -1,5 +1,10 @@
 # This repository's quality settings; `rust-gate sync` reads them.
 
+# Every repository of the organization builds and passes its tests on Linux,
+# macOS and Windows; the portability legs prove it on each pull request.
+[ci]
+platforms = "macos windows"
+
 [typos]
 # FND is the engineering rules' foundation prefix (FND-001 to FND-004).
 words = ["FND"]
