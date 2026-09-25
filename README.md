@@ -2,8 +2,8 @@
 
 A deliberately small Rust binary whose only job is to prove, on real tags, that
 [rust-workflows](https://github.com/Orchestration-Maestro/rust-workflows)
-releases what it claims: every pull request runs the organization's Rust CI, and every
-`v*` tag runs the live release path.
+releases what it claims: every pull request runs the organization's Rust CI,
+and every `v*` tag runs the live release path.
 
 | Workflow | What it proves |
 | --- | --- |
