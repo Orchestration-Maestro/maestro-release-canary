@@ -11,15 +11,17 @@ permissions:
   contents: read
 jobs:
   binaries:
-    uses: Orchestration-Maestro/rust-workflows/.github/workflows/publish-binaries.yml@13f5a701c85420f4a7140071855d53f20c28bed6  # v3.0.1
+    uses: Orchestration-Maestro/rust-workflows/.github/workflows/publish-binaries.yml@54e1d3c797e2f46c2c0078ded06b09221cdad34b  # v4.0.0
     permissions:
       contents: write  # upload the payload to the existing Release
       actions: read  # verify the release environment's protections
+      security-events: write  # static ceiling for the central check's skipped SARIF upload
+      id-token: write  # static ceiling for the central check's skipped Codecov login
     with:
       dry-run: false
   attest:
     needs: binaries
-    uses: Orchestration-Maestro/rust-workflows/.github/workflows/attest-binaries.yml@13f5a701c85420f4a7140071855d53f20c28bed6  # v3.0.1
+    uses: Orchestration-Maestro/rust-workflows/.github/workflows/attest-binaries.yml@54e1d3c797e2f46c2c0078ded06b09221cdad34b  # v4.0.0
     permissions:
       contents: read
       id-token: write  # sign the provenance statement with Sigstore
@@ -29,7 +31,7 @@ jobs:
       revision: ${{ needs.binaries.outputs.revision }}
   evidence:
     needs: binaries
-    uses: Orchestration-Maestro/rust-workflows/.github/workflows/publish-evidence.yml@13f5a701c85420f4a7140071855d53f20c28bed6  # v3.0.1
+    uses: Orchestration-Maestro/rust-workflows/.github/workflows/publish-evidence.yml@54e1d3c797e2f46c2c0078ded06b09221cdad34b  # v4.0.0
     permissions:
       contents: write  # upload evidence.tar.gz to the existing Release
       actions: read  # verify the release environment's protections
