@@ -24,11 +24,11 @@ the organization's Rust CI, and every `v*` tag runs the live release path.
 ## Verify before committing
 
 ```bash
-rust-gate setup  # once: the organization's pinned tools
-cargo fmt --all --check -- --config style_edition=2024
-rust-gate clippy --local
-cargo test --workspace --locked
-prek run --all-files
+rust-gate setup        # once: the organization's pinned tools and the hooks
+rust-gate ci --local   # exactly what CI runs; the pre-push hook runs it too
 ```
 
-Done when every command passes.
+`rust-gate ci --local` runs CI's checks job over the commits a push sends,
+never an uncommitted change
+([details](https://github.com/Orchestration-Maestro/rust-workflows/blob/main/docs/ci.md#run-ci-before-you-push)).
+Done when it passes.
