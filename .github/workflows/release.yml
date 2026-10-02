@@ -11,7 +11,7 @@ permissions:
   contents: read
 jobs:
   binaries:
-    uses: Orchestration-Maestro/maestro-rust-workflows/.github/workflows/publish-binaries.yml@b96638daefefa7f0de2a171ff6f20c55857b935d  # v4.8.0
+    uses: Orchestration-Maestro/maestro-rust-workflows/.github/workflows/publish-binaries.yml@ba2e8356c09e77afcebf3dfc47ad2be26d95957c  # v4.8.1
     permissions:
       contents: write  # upload the payload to the existing Release
       actions: read  # verify the release environment's protections
@@ -21,7 +21,7 @@ jobs:
       dry-run: false
   attest:
     needs: binaries
-    uses: Orchestration-Maestro/maestro-rust-workflows/.github/workflows/attest-binaries.yml@b96638daefefa7f0de2a171ff6f20c55857b935d  # v4.8.0
+    uses: Orchestration-Maestro/maestro-rust-workflows/.github/workflows/attest-binaries.yml@ba2e8356c09e77afcebf3dfc47ad2be26d95957c  # v4.8.1
     permissions:
       contents: read
       id-token: write  # sign the provenance statement with Sigstore
@@ -31,7 +31,7 @@ jobs:
       revision: ${{ needs.binaries.outputs.revision }}
   evidence:
     needs: binaries
-    uses: Orchestration-Maestro/maestro-rust-workflows/.github/workflows/publish-evidence.yml@b96638daefefa7f0de2a171ff6f20c55857b935d  # v4.8.0
+    uses: Orchestration-Maestro/maestro-rust-workflows/.github/workflows/publish-evidence.yml@ba2e8356c09e77afcebf3dfc47ad2be26d95957c  # v4.8.1
     permissions:
       contents: write  # upload evidence.tar.gz to the existing Release
       actions: read  # verify the release environment's protections
